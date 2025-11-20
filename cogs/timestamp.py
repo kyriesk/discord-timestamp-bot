@@ -49,6 +49,8 @@ class TimestampCog(commands.Cog):
     
     @app_commands.command(name="timestamp", description="Convert natural language to a Discord timestamp")
     @app_commands.describe(time_string="Natural language time (e.g., 'today 3pm', 'tomorrow', 'next friday')")
+    @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
+    @app_commands.allowed_installs(guilds=True, users=True)
     async def timestamp_command(self, interaction: discord.Interaction, time_string: str):
         """Convert natural language time to Discord timestamp."""
         try:
@@ -78,6 +80,8 @@ class TimestampCog(commands.Cog):
     
     @app_commands.command(name="in", description="Generate timestamp for a time in the future")
     @app_commands.describe(duration="Duration (e.g., '1 hour', '30 minutes', '2 hours 15 minutes')")
+    @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
+    @app_commands.allowed_installs(guilds=True, users=True)
     async def in_command(self, interaction: discord.Interaction, duration: str):
         """Generate timestamp for relative future time."""
         try:
@@ -105,6 +109,8 @@ class TimestampCog(commands.Cog):
     
     @app_commands.command(name="timezone", description="Set your timezone for timestamp commands")
     @app_commands.describe(timezone="IANA timezone (e.g., 'America/New_York', 'Europe/London', 'Asia/Tokyo')")
+    @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
+    @app_commands.allowed_installs(guilds=True, users=True)
     async def timezone_command(self, interaction: discord.Interaction, timezone: str):
         """Set user's timezone."""
         try:
